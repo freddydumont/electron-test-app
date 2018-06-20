@@ -1,13 +1,12 @@
-// CATEGORIES
-export const CATEGORIES_REQUESTED = 'CATEGORIES_REQUESTED';
-export const CATEGORIES_RECEIVED = 'CATEGORIES_RECEIVED';
-export const CATEGORIES_REQUEST_FAILED = 'CATEGORIES_REQUEST_FAILED';
-
-export const requestCategories = () => ({ type: CATEGORIES_REQUESTED });
-
 // PRODUCTS
 export const PRODUCTS_REQUESTED = 'PRODUCTS_REQUESTED';
 export const PRODUCTS_RECEIVED = 'PRODUCTS_RECEIVED';
 export const PRODUCTS_REQUEST_FAILED = 'PRODUCTS_REQUEST_FAILED';
 
-export const requestProducts = () => ({ type: PRODUCTS_REQUESTED });
+export const requestProducts = () => ({
+  type: PRODUCTS_REQUESTED,
+  payload: {
+    path: './app/data/products.csv',
+    output: 'categorized'
+  }
+});

@@ -3,14 +3,13 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
-// import { requestCategories, requestProducts } from './actions/index';
+import { requestProducts } from './actions/index';
 import './app.global.scss';
-import parser from './lib/parser';
 
 const store = configureStore();
 
-parser('./app/data/products.csv', 'categorized');
-parser('./app/data/categories.csv', 'line');
+// dispatch request for products as soon as store is created
+store.dispatch(requestProducts());
 
 render(
   <AppContainer>
