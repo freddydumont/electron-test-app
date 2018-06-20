@@ -3,9 +3,14 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
+import { requestCategories, requestProducts } from './actions/index';
 import './app.global.scss';
 
 const store = configureStore();
+
+// dispatch requests to convert CSV as soon as store is created
+store.dispatch(requestCategories());
+store.dispatch(requestProducts());
 
 render(
   <AppContainer>
