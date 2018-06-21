@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { Section } from 'bloomer';
 import Nav from './Navbar';
 
 type Props = {};
@@ -12,7 +13,9 @@ export default class Home extends Component<Props> {
       <div>
         <div data-tid="container">
           <Nav />
-          <h2>Home</h2>
+          <Section style={{ height: 'calc(100vh - 3.25rem)' }}>
+            <h2>Home</h2>
+          </Section>
         </div>
       </div>
     );
