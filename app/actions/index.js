@@ -10,3 +10,6 @@ export const requestProducts = () => ({
     output: 'categorized'
   }
 });
+
+// ROUTIFY
+export const CATEGORIES_ROUTIFIED = 'CATEGORIES_ROUTIFIED';
