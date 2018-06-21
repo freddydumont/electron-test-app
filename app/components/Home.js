@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import styles from './Home.css';
+import Nav from './Navbar';
 
 type Props = {};
 
@@ -10,7 +10,8 @@ export default class Home extends Component<Props> {
   render() {
     return (
       <div>
-        <div className={styles.container} data-tid="container">
+        <div data-tid="container">
+          <Nav />
           <h2>Home</h2>
         </div>
       </div>
