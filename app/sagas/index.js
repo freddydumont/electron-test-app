@@ -12,13 +12,14 @@ import {
  */
 function* routify({ payload }) {
   const categories = Object.keys(payload);
-  const routes = categories.map(val =>
-    val
+  const routes = {};
+  for (let i = 0; i < categories.length; i++) {
+    routes[categories[i]] = categories[i]
       .normalize('NFD')
       .replace(/[\u0300-\u036f]|[^A-Za-z0-9_\s]/g, '')
       .replace(/\s/g, '-')
-      .toLowerCase()
-  );
+      .toLowerCase();
+  }
   yield put({ type: CATEGORIES_ROUTIFIED, payload: routes });
 }
 
