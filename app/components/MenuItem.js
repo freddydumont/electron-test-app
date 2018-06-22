@@ -1,11 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { MenuLink } from 'bloomer';
 
-const MenuItem = ({ itemName, routeName }) => (
+const MenuItem = ({ name, activeCategory, selectCategory }) => (
   <li>
-    <NavLink to={routeName} activeClassName="is-active">
-      {itemName}
-    </NavLink>
+    <MenuLink
+      role="button"
+      isActive={name === activeCategory}
+      onClick={() => selectCategory(name)}
+    >
+      {name}
+    </MenuLink>
   </li>
 );
 

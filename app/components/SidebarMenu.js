@@ -2,17 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Menu, MenuLabel, MenuList } from 'bloomer';
 import MenuItem from './MenuItem';
+import { selectCategory } from '../actions/index';
 
 class SidebarMenu extends React.Component {
   render() {
-    const { loading, routes } = this.props;
-    let component = <Menu className="is-loading" />;
+    // eslint-disable-next-line
+    const { loading, products, activeCategory, selectCategory } = this.props;
+    let component = <Menu />;
     if (!loading) {
       const menuItems = [];
-      // eslint-disable-next-line
-      for (const [name, routeName] of Object.entries(routes)) {
+      const categories = Object.keys(products);
+      for (let i = 0; i < categories.length; i++) {
         menuItems.push(
-          <MenuItem key={routeName} itemName={name} routeName={routeName} />
+          <MenuItem
+            key={categories[i]}
+            name={categories[i]}
+            activeCategory={activeCategory}
+            selectCategory={selectCategory}
+          />
         );
       }
 
@@ -28,8 +35,11 @@ class SidebarMenu extends React.Component {
   }
 }
 
-export default connect(({ routes, loading, location }) => ({
-  routes,
-  loading,
-  location
-}))(SidebarMenu);
+export default connect(
+  ({ activeCategory, loading, products }) => ({
+    activeCategory,
+    loading,
+    products
+  }),
+  { selectCategory }
+)(SidebarMenu);

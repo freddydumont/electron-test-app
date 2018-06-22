@@ -2,7 +2,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 // actions
-import { PRODUCTS_RECEIVED } from '../actions/index';
+import { PRODUCTS_RECEIVED, SELECT_CATEGORY } from '../actions/index';
 
 function products(state = null, action) {
   switch (action.type) {
@@ -22,10 +22,22 @@ function loading(state = true, action) {
   }
 }
 
+function activeCategory(state = null, action) {
+  switch (action.type) {
+    case PRODUCTS_RECEIVED:
+      return Object.keys(action.payload)[0];
+    case SELECT_CATEGORY:
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   router,
   loading,
-  products
+  products,
+  activeCategory
 });
 
 export default rootReducer;

@@ -10,3 +10,13 @@ export const requestProducts = () => ({
     output: 'categorized'
   }
 });
+
+// ACTIVE CATEGORY
+export const SELECT_CATEGORY = 'SELECT_CATEGORY';
+
+export function selectCategory(name) {
+  return {
+    type: SELECT_CATEGORY,
+    payload: name
+  };
+}
