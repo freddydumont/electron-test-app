@@ -2,7 +2,11 @@
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 // actions
-import { PRODUCTS_RECEIVED, SELECT_CATEGORY } from '../actions/index';
+import {
+  PRODUCTS_RECEIVED,
+  SELECT_CATEGORY,
+  ADD_PRODUCT
+} from '../actions/index';
 
 function products(state = null, action) {
   switch (action.type) {
@@ -33,11 +37,28 @@ function activeCategory(state = null, action) {
   }
 }
 
+function items(state = null, action) {
+  switch (action.type) {
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        [action.payload.name]: action.payload.price
+      };
+    default:
+      return state;
+  }
+}
+
+const invoice = combineReducers({
+  items
+});
+
 const rootReducer = combineReducers({
   router,
   loading,
   products,
-  activeCategory
+  activeCategory,
+  invoice
 });
 
 export default rootReducer;

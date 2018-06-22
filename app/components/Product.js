@@ -2,8 +2,9 @@ import React from 'react';
 import { Button } from 'bloomer';
 import accounting from 'accounting-js';
 
-const Product = ({ name, price }) => (
+const Product = ({ name, price, addProduct }) => (
   <Button
+    onClick={() => addProduct(name, price)}
     render={props => (
       <div {...props}>
         <p>{name}</p>

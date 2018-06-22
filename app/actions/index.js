@@ -14,9 +14,15 @@ export const requestProducts = () => ({
 // ACTIVE CATEGORY
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 
-export function selectCategory(name) {
-  return {
-    type: SELECT_CATEGORY,
-    payload: name
-  };
-}
+export const selectCategory = name => ({
+  type: SELECT_CATEGORY,
+  payload: name
+});
+
+// PRODUCT SELECTION
+export const ADD_PRODUCT = 'ADD_PRODUCT';
+
+export const addProduct = (name, price) => ({
+  type: ADD_PRODUCT,
+  payload: { name, price }
+});
