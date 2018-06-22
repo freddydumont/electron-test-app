@@ -22,9 +22,19 @@ function routes(state = null, action) {
   }
 }
 
+function loading(state = true, action) {
+  switch (action.type) {
+    case CATEGORIES_ROUTIFIED:
+      return false;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   router,
   routes,
+  loading,
   products
 });
 
