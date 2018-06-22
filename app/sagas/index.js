@@ -1,27 +1,6 @@
 import { call, takeEvery, put } from 'redux-saga/effects';
 import parser from '../lib/parser';
-import {
-  PRODUCTS_REQUESTED,
-  PRODUCTS_RECEIVED,
-  CATEGORIES_ROUTIFIED
-} from '../actions/index';
-
-/**
- * Worker Saga turning product categories strings into route strings.
- * Takes in a payload object and returns an action with the result
- */
-function* routify({ payload }) {
-  const categories = Object.keys(payload);
-  const routes = {};
-  for (let i = 0; i < categories.length; i++) {
-    routes[categories[i]] = categories[i]
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]|[^A-Za-z0-9_\s]/g, '')
-      .replace(/\s/g, '-')
-      .toLowerCase();
-  }
-  yield put({ type: CATEGORIES_ROUTIFIED, payload: routes });
-}
+import { PRODUCTS_REQUESTED } from '../actions/index';
 
 /**
  * Worker Saga responsible for calling the parser and handling errors
@@ -40,5 +19,4 @@ function* parseCsv(actionType, { payload: { path, output } }) {
 
 export default function* rootSaga() {
   yield takeEvery(PRODUCTS_REQUESTED, parseCsv, 'PRODUCTS');
-  yield takeEvery(PRODUCTS_RECEIVED, routify);
 }

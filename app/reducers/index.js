@@ -2,7 +2,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 // actions
-import { PRODUCTS_RECEIVED, CATEGORIES_ROUTIFIED } from '../actions/index';
+import { PRODUCTS_RECEIVED } from '../actions/index';
 
 function products(state = null, action) {
   switch (action.type) {
@@ -13,18 +13,9 @@ function products(state = null, action) {
   }
 }
 
-function routes(state = null, action) {
-  switch (action.type) {
-    case CATEGORIES_ROUTIFIED:
-      return action.payload;
-    default:
-      return state;
-  }
-}
-
 function loading(state = true, action) {
   switch (action.type) {
-    case CATEGORIES_ROUTIFIED:
+    case PRODUCTS_RECEIVED:
       return false;
     default:
       return state;
@@ -33,7 +24,6 @@ function loading(state = true, action) {
 
 const rootReducer = combineReducers({
   router,
-  routes,
   loading,
   products
 });
