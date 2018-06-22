@@ -11,6 +11,7 @@ const Main = () => (
     >
       <Tile isAncestor style={{ height: 'calc(100vh - 3.25rem - 72px)' }}>
         <Tile isParent>
+          {/* SIDEBAR */}
           <Tile isSize={2} isParent>
             <Tile
               isChild
@@ -21,6 +22,7 @@ const Main = () => (
               )}
             />
           </Tile>
+          {/* PRODUCTS */}
           <Tile isSize={7} isParent>
             <Tile
               isChild
@@ -32,6 +34,7 @@ const Main = () => (
               )}
             />
           </Tile>
+          {/* INVOICE */}
           <Tile isSize={3} isParent>
             <Tile
               isChild
