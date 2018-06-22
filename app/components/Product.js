@@ -4,7 +4,6 @@ import accounting from 'accounting-js';
 
 const Product = ({ name, price }) => (
   <Button
-    isSize="medium"
     render={props => (
       <div {...props}>
         <p>{name}</p>

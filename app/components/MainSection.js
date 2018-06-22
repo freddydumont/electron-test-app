@@ -1,6 +1,7 @@
 import React from 'react';
 import { Section, Tile, Box } from 'bloomer';
 import SidebarMenu from './SidebarMenu';
+import VisibleProducts from '../containers/VisibleProducts';
 
 const Main = () => (
   <main>
@@ -26,6 +27,7 @@ const Main = () => (
               render={props => (
                 <Box {...props}>
                   <p className="menu-label">Products</p>
+                  <VisibleProducts />
                 </Box>
               )}
             />
