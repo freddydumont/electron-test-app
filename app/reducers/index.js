@@ -37,12 +37,16 @@ function activeCategory(state = null, action) {
   }
 }
 
-function items(state = null, action) {
-  switch (action.type) {
+function items(state = {}, { type, payload }) {
+  switch (type) {
     case ADD_PRODUCT:
       return {
         ...state,
-        [action.payload.name]: action.payload.price
+        [payload.name]: {
+          price: payload.price,
+          // if product is already present, increment quantity
+          quantity: state[payload.name] ? state[payload.name].quantity + 1 : 1
+        }
       };
     default:
       return state;
