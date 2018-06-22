@@ -209,6 +209,7 @@
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "line-by-line": "^0.1.6",
+    "lodash.isempty": "^4.4.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-hot-loader": "^4.2.0",
