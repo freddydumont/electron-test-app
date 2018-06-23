@@ -14,3 +14,10 @@ body {
 .ml-auto {
   margin-left: auto;
 }
+
+// override tile default min-content
+.tile {
+  min-height: initial;
+  height: 100%;
+  overflow-y: scroll;
+}

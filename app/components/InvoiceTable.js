@@ -17,7 +17,6 @@ class InvoiceTable extends React.Component {
     // update blocked, implement shouldcomponentupdate
     const rows = [];
     if (!isEmpty(this.props.items)) {
-      console.log(this.props.items);
       // eslint-disable-next-line
       for (const [name, value] of Object.entries(this.props.items)) {
         rows.push(
@@ -32,7 +31,7 @@ class InvoiceTable extends React.Component {
     }
 
     return (
-      <Table isNarrow>
+      <Table isNarrow className="is-fullwidth is-hoverable">
         <thead>
           <tr>
             <th>QTY</th>

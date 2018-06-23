@@ -41,8 +41,19 @@ const Main = () => (
               isChild
               render={props => (
                 <Box {...props}>
-                  <p className="menu-label">Invoice</p>
-                  <InvoiceTable />
+                  <Tile
+                    isParent
+                    isVertical
+                    style={{ minHeight: '100%', paddingTop: 0 }}
+                  >
+                    <p className="menu-label">Invoice</p>
+                    <Tile isChild style={{ minHeight: '75%' }}>
+                      <InvoiceTable />
+                    </Tile>
+                    <Tile isChild style={{ height: '25%' }}>
+                      <p className="menu-label">Totals</p>
+                    </Tile>
+                  </Tile>
                 </Box>
               )}
             />
