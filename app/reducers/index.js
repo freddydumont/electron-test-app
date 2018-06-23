@@ -5,7 +5,8 @@ import { routerReducer as router } from 'react-router-redux';
 import {
   PRODUCTS_RECEIVED,
   SELECT_CATEGORY,
-  ADD_PRODUCT
+  ADD_PRODUCT,
+  RESET_INVOICE
 } from '../actions/index';
 
 function products(state = null, action) {
@@ -48,6 +49,8 @@ function items(state = {}, { type, payload }) {
           quantity: state[payload.name] ? state[payload.name].quantity + 1 : 1
         }
       };
+    case RESET_INVOICE:
+      return {};
     default:
       return state;
   }
@@ -57,6 +60,8 @@ function subtotal(state = 0, action) {
   switch (action.type) {
     case ADD_PRODUCT:
       return state + action.payload.price;
+    case RESET_INVOICE:
+      return 0;
     default:
       return state;
   }

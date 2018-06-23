@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Section, Tile, Box, Button } from 'bloomer';
 import SidebarMenu from './SidebarMenu';
 import VisibleProducts from '../containers/VisibleProducts';
 import Totals from '../containers/Totals';
 import InvoiceTable from './InvoiceTable';
+import { resetInvoice } from '../actions/index';
 
-const Main = () => (
+const Main = ({ dispatch }) => (
   <main>
     <Section
       style={{ minHeight: 'calc(100vh - 3.25rem)' }}
@@ -52,7 +54,12 @@ const Main = () => (
                       style={{ justifyContent: 'space-between' }}
                     >
                       <p className="menu-label">Invoice</p>
-                      <Button isSize="small">Reset</Button>
+                      <Button
+                        isSize="small"
+                        onClick={() => dispatch(resetInvoice())}
+                      >
+                        Reset
+                      </Button>
                     </div>
                     <Tile isChild style={{ minHeight: '66.666666%' }}>
                       <InvoiceTable />
@@ -72,4 +79,4 @@ const Main = () => (
   </main>
 );
 
-export default Main;
+export default connect()(Main);

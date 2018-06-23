@@ -26,3 +26,10 @@ export const addProduct = (name, price) => ({
   type: ADD_PRODUCT,
   payload: { name, price }
 });
+
+// RESET
+export const RESET_INVOICE = 'RESET_INVOICE';
+
+export const resetInvoice = () => ({
+  type: RESET_INVOICE
+});
