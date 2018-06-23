@@ -1,7 +1,8 @@
 import React from 'react';
-import { Section, Tile, Box } from 'bloomer';
+import { Section, Tile, Box, Button } from 'bloomer';
 import SidebarMenu from './SidebarMenu';
 import VisibleProducts from '../containers/VisibleProducts';
+import Totals from '../containers/Totals';
 import InvoiceTable from './InvoiceTable';
 
 const Main = () => (
@@ -46,12 +47,19 @@ const Main = () => (
                     isVertical
                     style={{ minHeight: '100%', paddingTop: 0 }}
                   >
-                    <p className="menu-label">Invoice</p>
-                    <Tile isChild style={{ minHeight: '75%' }}>
+                    <div
+                      className="is-flex"
+                      style={{ justifyContent: 'space-between' }}
+                    >
+                      <p className="menu-label">Invoice</p>
+                      <Button isSize="small">Reset</Button>
+                    </div>
+                    <Tile isChild style={{ minHeight: '66.666666%' }}>
                       <InvoiceTable />
                     </Tile>
-                    <Tile isChild style={{ height: '25%' }}>
+                    <Tile isChild style={{ height: '33.333333%' }}>
                       <p className="menu-label">Totals</p>
+                      <Totals />
                     </Tile>
                   </Tile>
                 </Box>

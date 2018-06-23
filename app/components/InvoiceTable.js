@@ -8,7 +8,7 @@ const TableRow = ({ quantity, name, price }) => (
   <tr>
     <td>{quantity}</td>
     <td>{name}</td>
-    <td>{accounting.formatMoney(price)}</td>
+    <td className="has-text-right">{accounting.formatMoney(price)}</td>
   </tr>
 );
 
