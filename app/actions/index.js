@@ -27,6 +27,17 @@ export const addProduct = (name, price) => ({
   payload: { name, price }
 });
 
+// REMOVE PRODUCT
+export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
+
+export const removeProduct = (name, price) => ({
+  type: REMOVE_PRODUCT,
+  payload: {
+    name,
+    price
+  }
+});
+
 // RESET
 export const RESET_INVOICE = 'RESET_INVOICE';
 

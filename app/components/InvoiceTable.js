@@ -2,25 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Table } from 'bloomer';
 import isEmpty from 'lodash.isempty';
-import accounting from 'accounting-js';
-
-const TableRow = ({ quantity, name, price }) => (
-  <tr>
-    <td>{quantity}</td>
-    <td>{name}</td>
-    <td className="has-text-right">{accounting.formatMoney(price)}</td>
-  </tr>
-);
+import TableRow from './TableRow';
 
 class InvoiceTable extends React.Component {
   render() {
-    // update blocked, implement shouldcomponentupdate
     const rows = [];
     if (!isEmpty(this.props.items)) {
       // eslint-disable-next-line
       for (const [name, value] of Object.entries(this.props.items)) {
         rows.push(
           <TableRow
+            dispatch={this.props.dispatch}
             key={name}
             quantity={value.quantity}
             name={name}
@@ -37,6 +29,7 @@ class InvoiceTable extends React.Component {
             <th>QTY</th>
             <th>Name</th>
             <th>Price</th>
+            <th />
           </tr>
         </thead>
         <tbody>{rows}</tbody>

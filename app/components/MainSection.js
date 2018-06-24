@@ -27,7 +27,7 @@ const Main = ({ dispatch }) => (
             />
           </Tile>
           {/* PRODUCTS */}
-          <Tile isSize={7} isParent>
+          <Tile isSize={6} isParent>
             <Tile
               isChild
               render={props => (
@@ -39,7 +39,7 @@ const Main = ({ dispatch }) => (
             />
           </Tile>
           {/* INVOICE */}
-          <Tile isSize={3} isParent>
+          <Tile isSize={4} isParent>
             <Tile
               isChild
               render={props => (

@@ -6,6 +6,7 @@ import {
   PRODUCTS_RECEIVED,
   SELECT_CATEGORY,
   ADD_PRODUCT,
+  REMOVE_PRODUCT,
   RESET_INVOICE
 } from '../actions/index';
 
@@ -49,6 +50,10 @@ function items(state = {}, { type, payload }) {
           quantity: state[payload.name] ? state[payload.name].quantity + 1 : 1
         }
       };
+    case REMOVE_PRODUCT: {
+      const { [payload.name]: value, ...withoutProduct } = state;
+      return withoutProduct;
+    }
     case RESET_INVOICE:
       return {};
     default:
@@ -60,6 +65,8 @@ function subtotal(state = 0, action) {
   switch (action.type) {
     case ADD_PRODUCT:
       return state + action.payload.price;
+    case REMOVE_PRODUCT:
+      return state - action.payload.price;
     case RESET_INVOICE:
       return 0;
     default:
